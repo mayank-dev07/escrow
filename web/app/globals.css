@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+  --font-display: "Space Grotesk", var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+html,
+body {
+  color: #eaf0ff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Neon utilities ---------------------------------------------------------- */
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
+  }
+
+  .neon-text {
+    background: linear-gradient(92deg, #a6c8ff 0%, #5227ff 50%, #ff9ffc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5
+      font-medium transition-all duration-200 disabled:opacity-40
+      disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn text-void font-semibold;
+    background: linear-gradient(92deg, #a6c8ff, #5227ff);
+    box-shadow: 0 0 24px -6px rgba(166, 200, 255, 0.65);
+  }
+  .btn-primary:hover:not(:disabled) {
+    box-shadow: 0 0 34px -4px rgba(255, 159, 252, 0.7);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply btn glass text-white/80 hover:text-white hover:border-white/25;
+  }
+
+  .btn-danger {
+    @apply btn text-white font-medium border border-neon-magenta/40
+      bg-neon-magenta/10 hover:bg-neon-magenta/20;
+    box-shadow: 0 0 20px -8px rgba(255, 78, 205, 0.5);
+  }
+
+  .card {
+    @apply glass rounded-2xl;
+  }
+
+  .input {
+    @apply w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3
+      text-white placeholder-white/30 outline-none transition-colors
+      focus:border-neon-cyan/60 focus:ring-1 focus:ring-neon-cyan/40;
+  }
+}
+
+/* Style the wallet-adapter button to match the theme */
+.wallet-adapter-button-trigger {
+  background: linear-gradient(92deg, #a6c8ff, #5227ff) !important;
+  color: #03051a !important;
+  font-weight: 600 !important;
+  border-radius: 0.75rem !important;
+  height: auto !important;
+  padding: 0.6rem 1.1rem !important;
+  box-shadow: 0 0 24px -6px rgba(166, 200, 255, 0.6);
+}
+
+/* Thin neon scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#a6c8ff, #5227ff);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
