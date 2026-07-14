@@ -14,7 +14,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-white/5 bg-void/60 backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-white/5  backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6">
         <Link href="/" className="group flex items-center gap-2.5">
           <LogoMark />
